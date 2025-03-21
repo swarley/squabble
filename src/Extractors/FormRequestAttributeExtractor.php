@@ -9,10 +9,11 @@ use Swarley\Squabble\Contracts\ExtractorContract;
 class FormRequestAttributeExtractor implements ExtractorContract
 {
     public array $dependencies = [];
+
     public array $properties = [];
 
     /**
-     * @param class-string<FormRequest> $formRequest
+     * @param  class-string<FormRequest>  $formRequest
      */
     public function __construct(public string $formRequest) {}
 

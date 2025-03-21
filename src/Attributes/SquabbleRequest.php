@@ -2,8 +2,8 @@
 
 namespace Swarley\Squabble\Attributes;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Attribute;
+use Illuminate\Foundation\Http\FormRequest;
 
 #[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_FUNCTION)]
 class SquabbleRequest

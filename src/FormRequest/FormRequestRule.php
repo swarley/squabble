@@ -5,17 +5,18 @@ namespace Swarley\Squabble\FormRequest;
 class FormRequestRule
 {
     protected array $dependencies = [];
+
     protected bool $nullable = false;
+
     protected bool $required = false;
+
     protected ?string $type = null;
 
     public function __construct(
         protected array $arguments = [],
     ) {}
 
-    public function onRuleAdd(FormRequestProperty $property): void
-    {
-    }
+    public function onRuleAdd(FormRequestProperty $property): void {}
 
     public function getDependencies(): array
     {

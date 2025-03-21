@@ -1,10 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Route;
-use Swarley\Squabble\Attributes\SquabbleRequest;
-use Swarley\Squabble\Attributes\SquabbleResponse;
 use Swarley\Squabble\Facades\Squabble;
 
 it('can test', function () {
