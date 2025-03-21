@@ -1,10 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Swarley\Squabble\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
-use VendorName\Skeleton\SkeletonServiceProvider;
+use Swarley\Squabble\SquabbleServiceProvider;
+use Swarley\Squabble\Test\Controller;
 
 class TestCase extends Orchestra
 {
@@ -13,14 +15,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'VendorName\\Skeleton\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Swarley\\Squabble\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            SkeletonServiceProvider::class,
+            SquabbleServiceProvider::class,
         ];
     }
 
@@ -33,5 +35,16 @@ class TestCase extends Orchestra
             (include $migration->getRealPath())->up();
          }
          */
+    }
+
+    public function defineRoutes($router)
+    {
+        Route::name('test-namespace.')->group(function () {
+            Route::get('test-route')->name('test-route');
+        });
+
+        Route::name('api.')->group(function () {
+            Route::get('foo', [Controller::class, 'foo'])->name('foo');
+        });
     }
 }
