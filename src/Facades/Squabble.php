@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \Swarley\Squabble\Squabble
+ *
  * @mixin \Swarley\Squabble\Squabble
  */
 class Squabble extends Facade

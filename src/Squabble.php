@@ -12,7 +12,8 @@ use Swarley\Squabble\Attributes\SquabbleRequest;
 use Swarley\Squabble\Attributes\SquabbleResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-class Squabble {
+class Squabble
+{
     public static function getRoutes(): Collection
     {
         $prefixes = collect(config('squabble.namespace'));
@@ -24,7 +25,6 @@ class Squabble {
     }
 
     /**
-     * @param Route $route
      * @return class-string<FormRequest>|null
      */
     public static function getRequestFromRoute(Route $route): ?string
@@ -56,13 +56,13 @@ class Squabble {
         }
 
         return collect(method_exists($type, 'getTypes') ? $type->getTypes() : [$type])
-            ->some(fn ($type) => is_subclass_of((string)$type, FormRequest::class));
+            ->some(fn ($type) => is_subclass_of((string) $type, FormRequest::class));
     }
 
     private static function extractFormRequestType(ReflectionType $type): ?string
     {
         return collect(method_exists($type, 'getTypes') ? $type->getTypes() : [$type])
-            ->filter(fn ($type) => is_subclass_of((string)$type, FormRequest::class))
+            ->filter(fn ($type) => is_subclass_of((string) $type, FormRequest::class))
             ->first()
             ?->__toString();
     }
@@ -105,13 +105,13 @@ class Squabble {
         }
 
         return collect(method_exists($type, 'getTypes') ? $type->getTypes() : [$type])
-            ->some(fn ($type) => is_subclass_of((string)$type, Response::class));
+            ->some(fn ($type) => is_subclass_of((string) $type, Response::class));
     }
 
     private static function extractResponseType(ReflectionType $type): ?string
     {
         return collect(method_exists($type, 'getTypes') ? $type->getTypes() : [$type])
-            ->filter(fn ($type) => is_subclass_of((string)$type, Response::class))
+            ->filter(fn ($type) => is_subclass_of((string) $type, Response::class))
             ->first()
             ?->__toString();
     }
