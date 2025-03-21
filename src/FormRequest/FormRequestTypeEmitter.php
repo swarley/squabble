@@ -8,15 +8,14 @@ use Swarley\Squabble\FormRequestAnalyzer\FormRequestAnalyzer;
 class FormRequestTypeEmitter
 {
     /**
-     * @param class-string<FormRequest> $formRequest
-     * @return string
+     * @param  class-string<FormRequest>  $formRequest
      */
     public static function emitFormRequestType(string $formRequest): string
     {
         $name = class_basename($formRequest);
         $output = "interface {$name} {\n";
 
-        $analyzer = new FormRequestAnalyzer();
+        $analyzer = new FormRequestAnalyzer;
         $tokenizedRules = $analyzer->analyze($formRequest);
 
         foreach ($tokenizedRules as $property) {

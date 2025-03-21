@@ -5,7 +5,9 @@ namespace Swarley\Squabble\FormRequest;
 class FormRequestProperty
 {
     protected bool $nullable = false;
+
     protected bool $required = false;
+
     protected array $rules = [];
 
     public function __construct(

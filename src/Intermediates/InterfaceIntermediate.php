@@ -2,7 +2,4 @@
 
 namespace Swarley\Squabble\Intermediates;
 
-class InterfaceIntermediate
-{
-
-}
+class InterfaceIntermediate {}

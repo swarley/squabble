@@ -3,8 +3,10 @@
 use Swarley\Squabble\Contracts\FormRequestAnalyzerContract;
 
 it('takes a form request and returns an array of tokenized rules', function () {
-    class DoesThingsFormRequest extends \Illuminate\Foundation\Http\FormRequest {
-        public function rules() {
+    class DoesThingsFormRequest extends \Illuminate\Foundation\Http\FormRequest
+    {
+        public function rules()
+        {
             return [
                 'test' => 'required|integer',
             ];

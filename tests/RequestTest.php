@@ -1,7 +1,7 @@
 <?php
 
 it('knows what form request is used for a route', function () {
-    class TestKnowsRequest extends FormRequest {};
+    class TestKnowsRequest extends FormRequest {}
 
     $route = Route::get('test', function ($notRequest, TestKnowsRequest $req) {});
 
@@ -12,8 +12,8 @@ it('knows what form request is used for a route', function () {
 
 // Is this actually a good thing?
 it('knows what form request is used for a route with a union type', function () {
-    class TestKnowsUnionRequest extends FormRequest {};
-    class ExtraUnionClass {};
+    class TestKnowsUnionRequest extends FormRequest {}
+    class ExtraUnionClass {}
 
     $route = Route::get('test', function ($notRequest, TestKnowsUnionRequest|ExtraUnionClass $req) {});
 
@@ -23,7 +23,7 @@ it('knows what form request is used for a route with a union type', function () 
 });
 
 it('knows when a form request has been specified via an attribute', function () {
-    class TestKnowsAttributeRequest extends FormRequest {};
+    class TestKnowsAttributeRequest extends FormRequest {}
 
     $route = Route::get('test', #[SquabbleRequest(TestKnowsAttributeRequest::class)] fn () => null);
 

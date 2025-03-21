@@ -2,6 +2,4 @@
 
 namespace Swarley\Squabble\Contracts;
 
-interface IntermediateRepresentationContract
-{
-}
+interface IntermediateRepresentationContract {}

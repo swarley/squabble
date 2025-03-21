@@ -9,7 +9,7 @@ class AcceptedRule extends FormRequestRule
     public function types(): array
     {
         return [
-            <<<TYPE
+            <<<'TYPE'
                 type AcceptedValue = 'yes' | 'on' | '1' | 1 | true | 'true';
             TYPE,
         ];
